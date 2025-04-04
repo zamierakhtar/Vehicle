@@ -1,0 +1,40 @@
+package praktic.inheritance.mains;
+
+import praktic.inheritance.transportation.Bus;
+import praktic.inheritance.transportation.Taxi;
+import praktic.inheritance.transportation.Train;
+
+public class Main2 {
+    public static void main(String[] args) {
+        Bus bus = new Bus("Bus TransJakarta", 50, "Terminal A - Terminal B");
+        bus.startJourney(); // Memulai perjalanan
+        bus.boardPassengers(30); //30 penumpang naik
+        bus.boardPassengers(100); // Gagal naik karena melebihi kapasitas
+        bus.calculateFare(5); // Hitung tarif bus untuk 5 penumpang
+        bus.stopJourney(); // Menghentikan perjalanan
+        bus.dropPassengers(50); // Turunkan semua penumpang
+        bus.dropPassengers(10); // Gagal, karena tidak ada penumpang tersisa
+
+        System.out.println("\n----------------------------------------------------------\n");
+
+        Train train = new Train("Kereta Commuter Line", 200, "Stasiun Kota - Stasiun Pusat");
+        train.startJourney(); // Memulai perjalanan
+        train.boardPassengers(150); // 150 penumpang naik
+        train.boardPassengers(300); // Gagal naik karena melebihi kapasitas
+        train.calculateFare(); // Hitung tarif kereta (dengan rumus khusus)
+        train.stopJourney(); // Menghentikan perjalanan
+        train.dropPassengers(150); // 150 penumpang turun
+        train.dropPassengers(50);   // Sisa penumpang turun (atau gagal jika sudah 0)  
+
+        System.out.println("\n----------------------------------------------------------\n");
+
+        Taxi taxi = new Taxi("Taksi BlueBird", 4, "Bandara - Hotel");
+        taxi.startJourney(); // Memulai perjalanan
+        taxi.boardPassengers(3); // 3 penumpang naik
+        taxi.boardPassengers(3);  // Gagal, kapasitas penuh
+        taxi.calculateFare(10); // Hitung tarif berdasarkan jarak 10 km
+        taxi.stopJourney(); // Menghentikan perjalanan
+        taxi.dropPassengers(3); // 3 penumpang turun
+        taxi.dropPassengers(2);  // Gagal, tidak ada penumpang tersisa
+    }
+} 
