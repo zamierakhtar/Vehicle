@@ -1,0 +1,62 @@
+package praktic.inheritance.transportation;
+
+public class Vehicle {
+    // Properti dasar untuk semua kendaraannya
+    private String name; // Nama kendaraan-kendaraan (Kereta, Taxi dll.)
+    private String route; // Rute perjalanan kendaraan
+    private int currentPassengers; // Jumlah penumpang saat ini
+    private int capacity; // Kapasitas maksimum penumpang
+    
+    // Konstruktor Vehicle
+    public Vehicle(String name, int capacity, String route) {
+        this.name = name; // Menyimpan nama kendaraan ke atribut kelas
+        this.capacity = capacity; // Menyimpan kapasitas maksimum
+        this.route = route; // Menyimpan rute perjalanan
+        this.currentPassengers = 0; // Saat kendaraan dibuat, belum ada penumpang
+    }
+
+    // Method untuk memulai perjalanan kendaraan
+    public void startJourney() {
+        System.out.println(name + " memulai perjalanan di " + route);
+    }
+
+    // Method untuk menambahkan penumpang dengan batas maksimum kapasitas
+    public void boardPassengers(int count) {
+        // Meriksa apakah penumpang yang akan naik tidak melebihi kapasitas maks
+        if (currentPassengers + count <= capacity) {
+            currentPassengers += count;
+            System.out.println(count + " penumpang naik ke dalam " + name);
+        } else {
+            // Jika kapasitas sudah penuh, tampilkan pesan error
+            System.out.println("Tidak bisa naik, kapasitas penuh!" + count + " penumpang");
+        }
+        System.out.println("Total penumpang: " + currentPassengers);
+    }
+    
+    // Method untuk menurunkan penumpang dengan batas minimal 0
+    public void dropPassengers(int count) {
+        // Periksa apakah jumlah penumpang setelah turun tidak menjadi negatif
+        if (count <= currentPassengers) {
+            currentPassengers -= count;
+            System.out.println(count + " penumpang turun dari " + name);
+        } else {
+            // Jika jumlah penumpang yang ingin turun lebih dari yang ada, tampilkan pesan error
+            System.out.println("Tidak ada cukup penumpang untuk turun");
+        }
+    }
+
+
+    public void stopJourney() {
+        System.out.println(name + " mencapai tujuan akhir dan berhenti.");
+    }
+
+    // Method untuk menghitung tarif
+    public void calculateFare() {
+        System.out.println("Hitung tarif tidak tersedia untuk kendaraan umum.");
+    }
+
+    public int getCurrentPassenger() {
+        return currentPassengers;
+    }
+} 
+    
