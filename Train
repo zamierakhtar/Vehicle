@@ -1,0 +1,18 @@
+package praktic.inheritance.transportation;
+
+// Subclass Train yang mewarisi dari Vehicle
+public class Train extends Vehicle {
+    private static final int FIXED_FARE = 10000; // Tarif tetap per penumpang
+
+    // Konstruktor Train, menerima rute sebagai parameter
+    public Train(String name, int capacity, String route) {
+        super(name, capacity, route);
+    }
+    
+    // method untuk menghitung tarif (tarif tetap per penumpang)
+    public void calculateFare() {
+        int totalFare = getCurrentPassenger() * FIXED_FARE;
+        System.out.println("Tarif tetap per penumpang: Rp " + FIXED_FARE);
+        System.out.println("Total tarif perjalanan kereta: Rp " + totalFare);
+    }
+}
